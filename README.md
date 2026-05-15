@@ -1,5 +1,7 @@
 # ⚡ [SortViz](https://happy-water-0f0b36a10.7.azurestaticapps.net/) — Interactive Sorting Algorithm Visualizer
 [https://happy-water-0f0b36a10.7.azurestaticapps.net/](https://happy-water-0f0b36a10.7.azurestaticapps.net/)
+
+
 A polished, step-by-step sorting algorithm visualizer built with **React**, **TypeScript**, and **Vite**. Watch algorithms come to life with synchronized bar animations and live code-line highlighting — designed as both an educational tool and a portfolio showcase.
 
 ---
