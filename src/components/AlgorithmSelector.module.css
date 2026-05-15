@@ -1,0 +1,32 @@
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.btn {
+  padding: 8px 18px;
+  border-radius: var(--radius);
+  border: 1.5px solid var(--border2);
+  background: var(--surface2);
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.btn:hover {
+  border-color: var(--accent);
+  color: var(--text);
+  background: var(--surface3);
+}
+
+.btn.active {
+  border-color: var(--accent);
+  background: var(--accent-glow);
+  color: #a5b4fc;
+  box-shadow: 0 0 0 2px var(--accent-glow);
+}

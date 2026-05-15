@@ -1,0 +1,96 @@
+.container {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 24px 24px 16px;
+  min-height: 240px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.bars {
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+  min-height: 200px;
+}
+
+.bar {
+  flex: 1;
+  min-width: 6px;
+  border-radius: 4px 4px 0 0;
+  transition: height 0.2s ease, background-color 0.15s ease;
+  position: relative;
+  background: #334155;
+}
+
+/* states */
+.bar.comparing {
+  background: var(--compare) !important;
+  box-shadow: 0 0 10px var(--compare)80;
+}
+.bar.swapping {
+  background: var(--swap) !important;
+  box-shadow: 0 0 14px var(--swap)80;
+  animation: pulse 0.25s ease infinite alternate;
+}
+.bar.sorted {
+  background: var(--sorted) !important;
+  box-shadow: 0 0 6px var(--sorted)50;
+}
+.bar.overwriting {
+  background: var(--overwrite) !important;
+  box-shadow: 0 0 10px var(--overwrite)80;
+}
+
+@keyframes pulse {
+  from { opacity: 0.8; }
+  to   { opacity: 1; }
+}
+
+.labels {
+  display: flex;
+  gap: 3px;
+}
+
+.label {
+  flex: 1;
+  min-width: 6px;
+  text-align: center;
+  font-size: 0.55rem;
+  color: var(--text-dim);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  line-height: 1;
+}
+
+.label.comparing { color: var(--compare); font-weight: 700; }
+.label.swapping  { color: var(--swap);    font-weight: 700; }
+.label.sorted    { color: var(--sorted);  }
+.label.overwriting { color: var(--overwrite); font-weight: 700; }
+
+.legend {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
