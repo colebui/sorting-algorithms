@@ -126,3 +126,40 @@
   color: var(--accent);
   text-decoration: none;
 }
+
+/* ── Phones & small tablets ────────────────────────────────────── */
+/* Single column, reordered so the bars sit right above the playback
+   controls: picker → bars → controls → explanation → code → complexity. */
+@media (max-width: 899px) {
+  .header {
+    padding: 0 16px;
+  }
+
+  .headerBadge {
+    display: none;
+  }
+
+  .main {
+    padding: 16px 16px 32px;
+    gap: 16px;
+  }
+
+  .topRow,
+  .middleRow,
+  .bottomRow {
+    display: contents;
+  }
+
+  .topRow > *,
+  .middleRow > *,
+  .bottomRow > * {
+    min-width: 0;
+  }
+
+  .topLeft                  { order: 1; }
+  .middleRow > :nth-child(1) { order: 2; } /* ArrayVisualizer */
+  .bottomRow > :nth-child(1) { order: 3; } /* Controls */
+  .bottomRow > :nth-child(2) { order: 4; } /* ExplanationPanel */
+  .middleRow > :nth-child(2) { order: 5; } /* CodePanel */
+  .topRow > :nth-child(2)    { order: 6; } /* ComplexityCard */
+}

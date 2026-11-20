@@ -189,3 +189,10 @@
   color: var(--swap);
   margin-top: 4px;
 }
+
+@media (max-width: 899px) {
+  .panel {
+    padding: 16px;
+    gap: 14px;
+  }
+}
