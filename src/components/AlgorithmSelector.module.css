@@ -30,3 +30,28 @@
   color: #a5b4fc;
   box-shadow: 0 0 0 2px var(--accent-glow);
 }
+
+/* Phones: one swipeable row instead of three wrapped rows */
+@media (max-width: 899px) {
+  .wrapper {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 8px;
+    margin: 0 -16px;
+    padding: 2px 16px 4px;
+    scroll-snap-type: x proximity;
+    scroll-padding-inline: 16px;
+    scrollbar-width: none;
+  }
+
+  .wrapper::-webkit-scrollbar {
+    display: none;
+  }
+
+  .btn {
+    flex-shrink: 0;
+    padding: 8px 14px;
+    font-size: 0.8rem;
+    scroll-snap-align: start;
+  }
+}

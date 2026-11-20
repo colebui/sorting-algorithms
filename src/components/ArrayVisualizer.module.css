@@ -94,3 +94,40 @@
   border-radius: 3px;
   flex-shrink: 0;
 }
+
+@media (max-width: 899px) {
+  .container {
+    padding: 16px 14px 12px;
+    min-height: 0;
+  }
+
+  .bars {
+    gap: 2px;
+    min-height: 0;
+    height: 220px;
+    flex: none;
+  }
+
+  .bar {
+    min-width: 0;
+    border-radius: 3px 3px 0 0;
+  }
+
+  .labels {
+    gap: 2px;
+  }
+
+  .label {
+    min-width: 0;
+    font-size: 0.5rem;
+  }
+
+  .legend {
+    gap: 6px 12px;
+    margin-top: 0;
+  }
+
+  .legendItem {
+    font-size: 0.68rem;
+  }
+}
