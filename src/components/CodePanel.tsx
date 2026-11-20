@@ -44,9 +44,25 @@ function tokenise(line: string): React.ReactNode {
 
 export function CodePanel({ codeLines, activeLine, algorithmName }: Props) {
   const activeRef = useRef<HTMLDivElement>(null);
+  const codeRef = useRef<HTMLDivElement>(null);
 
+  // Keep the active line visible by scrolling only the code box itself.
+  // (scrollIntoView would also scroll the page, yanking it to the code panel
+  // on every step.)
   useEffect(() => {
-    activeRef.current?.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+    const box = codeRef.current;
+    const line = activeRef.current;
+    if (!box || !line) return;
+
+    const boxRect = box.getBoundingClientRect();
+    const lineRect = line.getBoundingClientRect();
+    let delta = 0;
+    if (lineRect.top < boxRect.top) delta = lineRect.top - boxRect.top;
+    else if (lineRect.bottom > boxRect.bottom) delta = lineRect.bottom - boxRect.bottom;
+
+    // Instant, not smooth: smooth scrolls get dropped when steps come quickly
+    // or the box is off-screen, leaving the active line hidden.
+    if (delta !== 0) box.scrollTop += delta;
   }, [activeLine]);
 
   return (
@@ -60,7 +76,7 @@ export function CodePanel({ codeLines, activeLine, algorithmName }: Props) {
         <span className={styles.title}>{algorithmName.toLowerCase().replace(/ /g, '_')}.ts</span>
       </div>
 
-      <div className={styles.code} role="region" aria-label="Algorithm source code">
+      <div ref={codeRef} className={styles.code} role="region" aria-label="Algorithm source code">
         {codeLines.map((line, i) => {
           const lineNum = i + 1;
           const isActive = lineNum === activeLine;
